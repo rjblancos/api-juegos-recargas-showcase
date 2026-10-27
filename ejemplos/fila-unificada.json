@@ -1,0 +1,22 @@
+{
+  "sku": "mayorista-b:juego:ejemplo_juego:paquete_100",
+  "proveedor": "mayorista-b",
+  "linea": "juego",
+  "categoria": "Recarga directa",
+  "nombre": "Juego de ejemplo",
+  "variante": "100 monedas",
+  "imagen": "https://ejemplo.invalid/imagen.png",
+  "pais": "",
+  "moneda": "USD",
+  "costo_usd": 0.95,
+  "valor_facial": "",
+  "descuento_pct": "",
+  "precio_venta_sugerido": 1.1875,
+  "margen_pct": 20,
+  "stock": "instock",
+  "vendible": "si",
+  "entrega": "recarga_directa",
+  "campos_requeridos": "User ID|Server ID",
+  "order_ref": {"api": "mayorista-b", "kind": "juego", "category_id": "ejemplo_juego", "offer_id": "paquete_100", "quantity": 1},
+  "notas": "Fila de ejemplo con datos inventados."
+}

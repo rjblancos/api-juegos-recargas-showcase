@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motor de catálogo de recargas · Kusarive Solutions LLC</title>
+<meta name="description" content="Unifica los catálogos de varios mayoristas de recargas, tarjetas de regalo y juegos, calcula el coste real y el precio de venta de cada producto.">
+<style>
+:root{--bg:#fafaf7;--card:#fff;--txt:#1d1d1b;--suave:#5c5c57;--linea:#e7e5df;--acento:#2b3dff;--acento-txt:#ffffff;--ok:#18794e}
+@media (prefers-color-scheme:dark){:root{--bg:#121211;--card:#1c1c1a;--txt:#efeee9;--suave:#a3a29b;--linea:#2e2d2a;--acento:#4d5cff;--ok:#4cc38a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.envoltura{max-width:1040px;margin:0 auto;padding:0 16px}
+header{padding:28px 0 8px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.marca{font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
+.marca span{background:var(--acento);color:var(--acento-txt);border-radius:6px;padding:2px 7px;margin-right:6px}
+.idioma button{background:none;border:1px solid var(--linea);color:var(--txt);border-radius:999px;padding:4px 12px;cursor:pointer;font:inherit;font-size:.85rem}
+.idioma button[aria-pressed=true]{background:var(--txt);color:var(--bg)}
+.portada{padding:48px 0 24px}
+h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:0 0 16px;letter-spacing:-.02em}
+.lema{font-size:1.15rem;color:var(--suave);max-width:680px;margin:0}
+.estado{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:.9rem;color:var(--suave)}
+.estado i{width:9px;height:9px;border-radius:50%;background:var(--ok);display:inline-block}
+.cifras{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:32px 0 8px}
+.cifra{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:18px 20px}
+.cifra b{display:block;font-size:2rem;letter-spacing:-.02em}
+.cifra small{color:var(--suave)}
+.nota{font-size:.82rem;color:var(--suave);margin:4px 0 0}
+h2{font-size:1.5rem;margin:56px 0 16px;letter-spacing:-.01em}
+.rejilla{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.bloque{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:18px 20px}
+.bloque h3{margin:0 0 6px;font-size:1.02rem}
+.bloque p{margin:0;color:var(--suave);font-size:.95rem}
+.capturas{display:grid;grid-template-columns:2fr 1fr;gap:14px;align-items:start}
+.capturas figure{margin:0}
+.capturas img{width:100%;height:auto;border-radius:12px;border:1px solid var(--linea);display:block}
+.capturas figcaption{font-size:.85rem;color:var(--suave);margin-top:6px}
+.pila{display:grid;gap:14px}
+.flujo{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.95rem}
+.flujo span{background:var(--card);border:1px solid var(--linea);border-radius:10px;padding:8px 12px}
+.flujo em{color:var(--suave);font-style:normal}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--linea);border-radius:14px;overflow:hidden}
+td{padding:12px 16px;border-top:1px solid var(--linea);vertical-align:top;font-size:.95rem}
+tr:first-child td{border-top:0}
+td:first-child{font-weight:700;white-space:nowrap;width:1%}
+.contacto{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:22px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
+.contacto a{color:var(--txt);font-weight:600}
+.boton{background:var(--acento);color:var(--acento-txt)!important;text-decoration:none;border-radius:10px;padding:10px 16px}
+footer{padding:40px 0;color:var(--suave);font-size:.85rem}
+[data-en]{display:none}
+html[lang=en] [data-es]{display:none}
+html[lang=en] [data-en]{display:revert}
+html[lang=en] .cifra b[data-en]{display:block}
+@media (max-width:720px){.capturas{grid-template-columns:1fr}td:first-child{white-space:normal}}
+pre{background:var(--card);border:1px solid var(--linea);border-radius:14px;padding:16px;overflow-x:auto;font-size:.85rem;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="envoltura">
+<header>
+  <div class="marca"><span>RD</span><span style="background:none;color:inherit;padding:0" data-es>Motor de catálogo</span><span style="background:none;color:inherit;padding:0" data-en>Catalog engine</span></div>
+  <div class="idioma" role="group" aria-label="Idioma / Language">
+    <button type="button" data-l="es" aria-pressed="true">ES</button>
+    <button type="button" data-l="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+
+<section class="portada">
+  <h1 data-es>Miles de productos mayoristas, un solo formato y su precio justo.</h1><h1 data-en>Thousands of wholesale products, one format and the right price.</h1>
+  <p class="lema" data-es>Unifica los catálogos de varios mayoristas de recargas, tarjetas de regalo y juegos, calcula el coste real de cada producto y el precio al que conviene venderlo, y deja escrito cómo pedir su entrega.</p><p class="lema" data-en>It unifies the catalogs of several wholesalers of top-ups, gift cards and game credits, works out each product's real cost and the price worth selling it at, and records how to order its delivery.</p>
+  <div class="estado"><i></i><span data-es>En uso para <a href="https://recargasdigitales.com">recargasdigitales.com</a> · Sistema propietario de Kusarive Solutions LLC</span><span data-en>In use for <a href="https://recargasdigitales.com">recargasdigitales.com</a> · Proprietary system by Kusarive Solutions LLC</span></div>
+  <div class="cifras">
+    <div class="cifra"><b data-es>13.346</b><b data-en>13,346</b><small data-es>productos unificados de dos mayoristas</small><small data-en>products unified from two wholesalers</small></div>
+    <div class="cifra"><b>158</b><small data-es>países y 600 operadores de recargas</small><small data-en>countries and 600 top-up operators</small></div>
+    <div class="cifra"><b>314</b><small data-es>juegos y 579 marcas de tarjetas</small><small data-en>games and 579 gift card brands</small></div>
+  </div>
+  <p class="nota" data-es>Cifras reales del último mapeo.</p><p class="nota" data-en>Real figures from the latest run.</p>
+</section>
+
+<h2 data-es>Qué hace</h2><h2 data-en>What it does</h2>
+<div class="rejilla">
+  <div class="bloque"><h3 data-es>Un solo formato</h3><h3 data-en>One format</h3>
+    <p data-es>Cada producto sale con las mismas columnas y una clave estable que no cambia entre mapeos.</p><p data-en>Every product comes out with the same columns and a stable key that never changes between runs.</p></div>
+  <div class="bloque"><h3 data-es>Coste real</h3><h3 data-en>Real cost</h3>
+    <p data-es>Descuento, comisión fija y porcentual, y moneda de emisión, según el modelo de cada mayorista.</p><p data-en>Discount, fixed and percentage fees, and issuing currency, per each wholesaler's model.</p></div>
+  <div class="bloque"><h3 data-es>Nunca a pérdida</h3><h3 data-en>Never at a loss</h3>
+    <p data-es>Precio para el margen pedido y aviso de lo que pierde vendido a valor de cara.</p><p data-en>Price for the target margin, flagging what loses money at face value.</p></div>
+  <div class="bloque"><h3 data-es>Mejor mayorista</h3><h3 data-en>Best wholesaler</h3>
+    <p data-es>Si dos venden el mismo producto, elige el más barato.</p><p data-en>When two sell the same product, it picks the cheaper one.</p></div>
+  <div class="bloque"><h3 data-es>Contrato de entrega</h3><h3 data-en>Delivery contract</h3>
+    <p data-es>Qué pedirle al cliente y qué enviar al mayorista, fila a fila.</p><p data-en>What to ask the customer for and what to send the wholesaler, row by row.</p></div>
+  <div class="bloque"><h3 data-es>Simulación por defecto</h3><h3 data-en>Simulation by default</h3>
+    <p data-es>Ningún pedido gasta saldo salvo que se habilite de forma explícita.</p><p data-en>No order spends balance unless explicitly enabled.</p></div>
+</div>
+
+<h2 data-es>Una fila del catálogo</h2><h2 data-en>A catalog row</h2>
+<p class="nota" data-es>Datos inventados; el formato es el real.</p><p class="nota" data-en>Made-up data; the format is the real one.</p>
+<pre>{
+  "sku": "mayorista-b:juego:ejemplo_juego:paquete_100",
+  "linea": "juego",
+  "variante": "100 monedas",
+  "costo_usd": 0.95,
+  "precio_venta_sugerido": 1.1875,
+  "margen_pct": 20,
+  "vendible": "si",
+  "entrega": "recarga_directa",
+  "campos_requeridos": "User ID|Server ID"
+}</pre>
+
+<h2 data-es>Cómo funciona</h2><h2 data-en>How it works</h2>
+<div data-es><div class="flujo"><span>Mayoristas</span><em>→</em><span>Extracción tolerante a fallos</span><em>→</em><span>Modelo de coste</span><em>→</em><span>Catálogo unificado</span><em>→</em><span>Mejor precio e informes</span><em>→</em><span>Tienda</span></div></div>
+<div data-en><div class="flujo"><span>Wholesalers</span><em>→</em><span>Fault-tolerant extraction</span><em>→</em><span>Cost model</span><em>→</em><span>Unified catalog</span><em>→</em><span>Best price and reports</span><em>→</em><span>Store</span></div></div>
+<p class="nota" data-es>Si un mayorista falla, se anota y el resto del mapeo continúa.</p><p class="nota" data-en>If a wholesaler fails, it is logged and the rest of the run carries on.</p>
+
+<h2 data-es>Garantías técnicas</h2><h2 data-en>Technical guarantees</h2>
+<table>
+  <tr><td data-es>Precios</td><td data-en>Pricing</td><td><span data-es>Un mismo cálculo de margen para todos: precio = coste / (1 − margen).</span><span data-en>One margin formula for all: price = cost / (1 − margin).</span></td></tr>
+  <tr><td data-es>Dinero</td><td data-en>Money</td><td><span data-es>Pedidos en simulación por defecto y credenciales de producción fuera del código.</span><span data-en>Orders simulate by default and production credentials stay out of the code.</span></td></tr>
+  <tr><td data-es>Calidad</td><td data-en>Quality</td><td><span data-es>24 verificaciones automáticas del modelo de costes y del pipeline, sin red.</span><span data-en>24 automated, offline checks of the cost model and pipeline.</span></td></tr>
+</table>
+
+<h2 data-es>Construido con</h2><h2 data-en>Built with</h2>
+<table>
+  <tr><td>Python</td><td><span data-es>Clientes, modelo de costes, unificación, informes y pruebas, solo con la biblioteca estándar (2.600 líneas).</span><span data-en>Clients, cost model, unification, reports and tests, standard library only (2,600 lines).</span></td></tr>
+  <tr><td>Shell</td><td><span data-es>Una pasada completa de mapeo (80 líneas).</span><span data-en>A full one-pass run (80 lines).</span></td></tr>
+</table>
+
+<h2 data-es>Contacto</h2><h2 data-en>Contact</h2>
+<div class="contacto">
+  <div><strong>Rafael Blanco</strong><br><span data-es>para Kusarive Solutions LLC</span><span data-en>for Kusarive Solutions LLC</span></div>
+  <a href="https://recargasdigitales.com">recargasdigitales.com</a>
+  <a href="mailto:info@recargasdigitales.com">info@recargasdigitales.com</a>
+  <a class="boton" href="https://wa.me/584128962261">WhatsApp +58 412 896 2261</a>
+</div>
+
+<footer>© 2026 Kusarive Solutions LLC.</footer>
+</div>
+
+<script>
+(function(){
+  var html=document.documentElement;
+  function poner(l){
+    html.lang=l;
+    document.querySelectorAll('.idioma button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
+    try{localStorage.setItem('idioma',l)}catch(e){}
+  }
+  document.querySelectorAll('.idioma button').forEach(function(b){b.addEventListener('click',function(){poner(b.dataset.l)})});
+  var g=null;try{g=localStorage.getItem('idioma')}catch(e){}
+  poner(g||((navigator.language||'es').slice(0,2)==='en'?'en':'es'));
+})();
+</script>
+</body>
+</html>
