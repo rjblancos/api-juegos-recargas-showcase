@@ -135,4 +135,10 @@ Rafael Blanco, para Kusarive Solutions LLC
 - WhatsApp: [+58 412 896 2261](https://wa.me/584128962261)
 - Presentación: [PDF de 10 diapositivas](presentacion/Motor-catalogo-recargas-presentacion.pdf)
 
+## Novedades
+
+- **27-oct-2026** · Publicación de la vitrina, con su presentación en PDF descargable.
+
+Registro completo: [CHANGELOG.md](CHANGELOG.md).
+
 © 2026 Kusarive Solutions LLC. Ver [LICENSE](LICENSE).
