@@ -8,7 +8,8 @@
 fija el modelo de precios de [recargasdigitales.com](https://recargasdigitales.com) ·
 **Sistema propietario** de Kusarive Solutions LLC ·
 [English version](README.en.md) ·
-[Página de presentación](https://rjblancos.github.io/api-juegos-recargas-showcase/)
+[Página de presentación](https://rjblancos.github.io/api-juegos-recargas-showcase/) ·
+**[Descargar la presentación en PDF](presentacion/Motor-catalogo-recargas-presentacion.pdf)** (10 diapositivas)
 
 ---
 
@@ -132,5 +133,6 @@ Rafael Blanco, para Kusarive Solutions LLC
 - Web: [recargasdigitales.com](https://recargasdigitales.com)
 - Correo: info@recargasdigitales.com
 - WhatsApp: [+58 412 896 2261](https://wa.me/584128962261)
+- Presentación: [PDF de 10 diapositivas](presentacion/Motor-catalogo-recargas-presentacion.pdf)
 
 © 2026 Kusarive Solutions LLC. Ver [LICENSE](LICENSE).
