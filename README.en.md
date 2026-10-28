@@ -128,8 +128,6 @@ Real figures from the latest run:
 
 ## Contact
 
-Rafael Blanco, for Kusarive Solutions LLC
-
 - Web: [recargasdigitales.com](https://recargasdigitales.com)
 - Email: info@recargasdigitales.com
 - WhatsApp: [+58 412 896 2261](https://wa.me/584128962261)

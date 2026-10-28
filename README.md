@@ -128,8 +128,6 @@ Cifras reales del último mapeo:
 
 ## Contacto
 
-Rafael Blanco, para Kusarive Solutions LLC
-
 - Web: [recargasdigitales.com](https://recargasdigitales.com)
 - Correo: info@recargasdigitales.com
 - WhatsApp: [+58 412 896 2261](https://wa.me/584128962261)
